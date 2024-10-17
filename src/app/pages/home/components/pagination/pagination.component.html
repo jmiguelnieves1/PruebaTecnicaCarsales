@@ -1,0 +1,8 @@
+<div style="display: flex; justify-content: center; align-items: center; flex-direction: column; gap: 10px;">
+    <span>{{messagePaginator()}}</span>
+    <div class="paginator">
+        @for (item of [].constructor(info().pages); track $index) {
+            <button class="pagination-button" [ngClass]="{'selected': $index + 1 === page()}" (click)="changePage($index + 1)">{{$index + 1}}</button>
+        }
+    </div>
+</div>

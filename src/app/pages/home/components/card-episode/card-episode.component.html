@@ -1,0 +1,23 @@
+<div class="card">
+    <div class="card-header">
+        <h4>{{episode().name}}</h4>
+    </div>
+
+    <div class="card-info">
+        <span>{{episode().episode | episodeFormat}}</span>
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
+            <span style="font-weight: 600;">Estreno: </span>
+            <span>{{episode().air_date | dateFormat}}</span>
+            <span style="font-weight: 600;"># Personajes: </span>
+            <span>{{episode().characters.length}}</span>
+        </div>
+        <!-- <div style="width: 100%; display: flex; justify-content: space-around;">
+            <span style="font-weight: 600;">Estreno: </span>
+            <span>{{episode().air_date | dateFormat}}</span>
+        </div>
+        <div style="width: 100%; display: flex; justify-content: space-around;">
+            <span style="font-weight: 600;"># Personajes: </span>
+            <span>{{episode().characters.length}}</span>
+        </div> -->
+    </div>
+</div>

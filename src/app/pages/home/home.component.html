@@ -1,0 +1,23 @@
+<section class="container">
+    <h2 class="title">Listado de episodios Rick and Morty</h2>
+    @if(result()?.info) {
+        <app-search (resultToSearchEvent)="changeSearch($event)" />
+        <div class="results">
+            <div class="episodes-grid">
+                @for (episode of result()?.results; track $index) {
+                    <app-card-episode [episode]="episode"></app-card-episode>
+                }
+            </div>
+
+            <app-pagination (pageOutput)="changePage($event)" [info]="result()?.info!" />
+        </div>
+    }@else if(result()?.error) {
+        <div class="other-message">
+            <span>{{result()?.error?.message ?? 'Ha ocurrido un error al cargar los episodios'}}</span>
+        </div>
+    } @else {
+        <div class="other-message">
+            <p>Cargando...</p>
+        </div>
+    }
+</section>

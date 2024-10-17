@@ -3,6 +3,14 @@
   "compileOnSave": false,
   "compilerOptions": {
     "outDir": "./dist/out-tsc",
+    "baseUrl": "./",
+    "paths": {
+      "@services/*": ["src/app/services/*"],
+      "@env/*": ["src/environments/*"],
+      "@interfaces/*": ["src/app/interfaces/*"],
+      "@pipes/*": ["src/app/pipes/*"],
+    },
+    "strictPropertyInitialization": false,
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,

@@ -1,0 +1,12 @@
+<form [formGroup]="form" class="search-container" (submit)="onSubmit()">
+    <input
+      type="text"
+      formControlName="search"
+      placeholder="Buscar por nombre de episodio..."
+      class="search-input"
+    />
+    <button class="search-button">
+        <span>Buscar</span>
+        <span style="font-size: 10px;">{{messageResult}}</span>
+    </button>
+</form>
