@@ -2,7 +2,7 @@ import { inject, Injectable, signal } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { catchError, map, Observable, of, timeout } from 'rxjs';
-import { EpisodeApiResponse } from '../interfaces/episode.interface';
+import { Episode, EpisodeApiResponse } from '@interfaces/episode.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +11,6 @@ export class EpisodesService {
   private readonly apiUrl = `${environment.apiBase}episode`;
   private http = inject(HttpClient);
 
-  // Estado de búsqueda y página
   nameSearch: string | null = null;
   page = signal<number>(1);
   isSearch = false;
@@ -30,10 +29,22 @@ export class EpisodesService {
     );
   }
 
+  getEpisodeById(id: string): Observable<EpisodeApiResponse> {
+    return this.http.get<Episode>(`${this.apiUrl}/${id}`).pipe(
+      timeout(environment.timeout),
+      map(episode => {
+        return {
+          result: episode
+        }
+      }),
+      catchError(this.handleError)
+    );
+  }
+
   private handleError(error: any): Observable<EpisodeApiResponse> {
     console.error('Error get episodes:', error);
     return of({
-      error: { message: "No pudimos obtener los episodios, ha ocurrido un error en el servidor" }
+      error: { message: "No pudimos obtener la información solicitada, ha ocurrido un error en el servidor" }
     });
   }
 }

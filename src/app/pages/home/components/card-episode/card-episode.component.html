@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card" [routerLink]="['episode', episode().id]" [state]="{ episodeData: episode() }">
     <div class="card-header">
         <h4>{{episode().name}}</h4>
     </div>
@@ -11,13 +11,5 @@
             <span style="font-weight: 600;"># Personajes: </span>
             <span>{{episode().characters.length}}</span>
         </div>
-        <!-- <div style="width: 100%; display: flex; justify-content: space-around;">
-            <span style="font-weight: 600;">Estreno: </span>
-            <span>{{episode().air_date | dateFormat}}</span>
-        </div>
-        <div style="width: 100%; display: flex; justify-content: space-around;">
-            <span style="font-weight: 600;"># Personajes: </span>
-            <span>{{episode().characters.length}}</span>
-        </div> -->
     </div>
 </div>

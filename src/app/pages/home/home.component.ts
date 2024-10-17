@@ -6,6 +6,7 @@ import { EpisodesService } from '@services/episodes.service';
 import { CardEpisodeComponent } from './components/card-episode/card-episode.component';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { SearchComponent } from './components/search/search.component';
+import { MessageInfoComponent } from '@shared/message-info/message-info.component';
 
 @Component({
   selector: 'app-home',
@@ -15,7 +16,8 @@ import { SearchComponent } from './components/search/search.component';
     JsonPipe,
     CardEpisodeComponent,
     PaginationComponent,
-    SearchComponent
+    SearchComponent,
+    MessageInfoComponent
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'

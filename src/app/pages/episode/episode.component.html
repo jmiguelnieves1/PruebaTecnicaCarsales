@@ -1,0 +1,27 @@
+<button [routerLink]="['']" class="back-button">
+    ← Volver Atrás
+</button>
+<section class="container-section">
+    @if(episodeData) {
+        @if(episodeData.result) {
+            <div style="display: flex; flex-direction: column; gap: 5px; align-items: center;">
+                <h2 class="title">{{episodeData.result.name}}</h2>
+                <span>{{episodeData.result.episode! | episodeFormat}}</span>
+            </div>
+            
+            @if(characters.length < 1) { 
+                <app-message-info message="No se han podido cargar los personajes." />
+            }
+
+            <div class="character-grid">
+                @for (item of characters; track $index) {
+                    <app-character [character]="item" />
+                }
+            </div>
+        } @else {
+            <app-message-info [message]="episodeData.error?.message ?? 'Ha ocurrido un error al cargar la información'" />
+        }
+    } @else {
+        <app-message-info message="Cargando..." />
+    }
+</section>

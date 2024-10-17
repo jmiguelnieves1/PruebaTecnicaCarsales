@@ -16,7 +16,7 @@ import { EpisodesService } from '@services/episodes.service';
 export class SearchComponent implements OnInit {
   episodeService = inject(EpisodesService);
   form = new FormGroup({
-    search: new FormControl<string>('', [Validators.required])
+    search: new FormControl<string>(this.episodeService.nameSearch ?? '', [Validators.required])
   });
   messageResult = '';
   lastSearch: string | null;
@@ -25,7 +25,7 @@ export class SearchComponent implements OnInit {
 
   ngOnInit(): void {
     this.form.get('search')!.valueChanges
-      .pipe(debounceTime(1000))
+      .pipe(debounceTime(800))
       .subscribe(value => {
         this.searchResult(value);
       });

@@ -12,12 +12,8 @@
             <app-pagination (pageOutput)="changePage($event)" [info]="result()?.info!" />
         </div>
     }@else if(result()?.error) {
-        <div class="other-message">
-            <span>{{result()?.error?.message ?? 'Ha ocurrido un error al cargar los episodios'}}</span>
-        </div>
+        <app-message-info [message]="result()?.error?.message ?? 'Ha ocurrido un error al cargar los episodios'" />
     } @else {
-        <div class="other-message">
-            <p>Cargando...</p>
-        </div>
+        <app-message-info message="Cargando..." />
     }
 </section>

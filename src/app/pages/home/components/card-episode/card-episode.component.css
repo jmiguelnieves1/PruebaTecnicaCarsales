@@ -4,6 +4,18 @@
     align-items: center;
     border: 1px solid var(--bg-gray);
     height: 100%;
+    border-radius: 3px;
+    transition: border 0.3s ease;
+}
+
+.card:hover {
+    border-color: var(--color-blue);
+    cursor: pointer;
+}
+
+.card:hover .card-header {
+    background-color: var(--color-blue);
+    color: white;
 }
 
 .card-header {
@@ -14,6 +26,7 @@
     width: 100%;
     height: 46px;
     background-color: var(--bg-gray-light);
+    transition: background-color 0.3s ease;
     font-weight: 600;
     font-size: 16px;
 }

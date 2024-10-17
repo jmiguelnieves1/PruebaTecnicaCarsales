@@ -6,6 +6,7 @@ export interface Episode {
   characters: string[];
   url: string;
   created: string;
+  error?: ErrorHandle;
 }
 
 export interface Information {
@@ -15,10 +16,13 @@ export interface Information {
   prev?: string;
 }
 
+export interface ErrorHandle {
+  message: string;
+}
+
 export interface EpisodeApiResponse {
   info?: Information
-  error?: {
-    message: string;
-  }
+  error?: ErrorHandle;
   results?: Episode[];
+  result?: Episode;
 }

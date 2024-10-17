@@ -9,6 +9,7 @@
       "@env/*": ["src/environments/*"],
       "@interfaces/*": ["src/app/interfaces/*"],
       "@pipes/*": ["src/app/pipes/*"],
+      "@shared/*": ["src/app/shared/*"]
     },
     "strictPropertyInitialization": false,
     "strict": true,

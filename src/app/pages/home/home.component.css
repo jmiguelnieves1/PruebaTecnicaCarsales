@@ -22,13 +22,6 @@
     justify-content: center;
 }
 
-.other-message {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
 @media (max-width: 1024px) {
     .episodes-grid {
         grid-template-columns: repeat(3, 1fr);
