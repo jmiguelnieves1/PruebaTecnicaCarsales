@@ -1,9 +1,9 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { EpisodesService } from '../../services/episodes.service';
-import { AsyncPipe, CommonModule } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { ActivatedRoute, RouterModule } from '@angular/router';
 import { lastValueFrom, Observable } from 'rxjs';
-import { Episode, EpisodeApiResponse } from '@interfaces/episode.interface';
+import { EpisodeApiResponse } from '@interfaces/episode.interface';
 import { EpisodeFormatPipe } from '../../pipes/episode-format.pipe';
 import { MessageInfoComponent } from '../../shared/message-info/message-info.component';
 import { CharacterService } from '../../services/character.service';
@@ -14,7 +14,6 @@ import { Character } from '@interfaces/character.interface';
   selector: 'app-episode',
   standalone: true,
   imports: [
-    AsyncPipe,
     EpisodeFormatPipe,
     MessageInfoComponent,
     CharacterComponent,
